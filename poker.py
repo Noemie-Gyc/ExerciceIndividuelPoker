@@ -70,3 +70,48 @@ print(len(newDeck))
 
 # Etape 4
 
+class Card :
+
+    card_Types = ['♠︎','♣︎','♡','♢']
+    card_Values = ['A','2','3','4','5','6','7','8','9','10','J','Q','K' ]
+    
+    def __init__(self, type = 0, value = 0):
+        self.type = type
+        self.value = value
+
+    def __str__(self):
+        return Card.card_Values[self.value]+Card.card_Types[self.type] 
+        
+carte1 = Card(0, 0)
+print(carte1)
+
+class Deck : 
+
+    def __init__(self):
+        self.cards = []
+        for Type in range(4):
+            for Value in range(0, 13):
+                cards = Card(Type, Value)
+                self.cards.append(cards)
+    
+    def mix(self):
+        random.shuffle(self.cards)
+
+    def remove_card(self):
+        return self.cards.remove()
+    
+    def ajouter_carte(self, card):
+        self.cards.append(card)
+    
+    def __str__(self):
+        res = []
+        for cards in self.cards:
+            res.append(str(cards))
+        return '\n'.join(res)
+
+deck4 = Deck()
+
+print(deck4)
+
+# Etape 5
+
